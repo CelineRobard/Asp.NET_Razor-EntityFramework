@@ -1,0 +1,35 @@
+﻿@page
+@model DogRazor.Pages.Dogs.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+      <li class="breadcrumb-item" ><a href="../Gestion">Gestion</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Supprimer un référencement</li>
+    </ol>
+</nav>
+
+<div>
+    <h4>Cette race ne sera plus référencée sur votre site. Voulez-vous la supprimer ?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dog.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dog.Name)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Dog.Id" />
+        <input type="submit" value="Confirmer" class="btn btn-danger" /> |
+        <a asp-page="../Gestion">Revenir au menu</a>
+    </form>
+</div>

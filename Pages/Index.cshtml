@@ -1,0 +1,17 @@
+﻿@page
+@model DogRazor.Pages.Dogs.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">  
+    @foreach (var item in Model.Dog) {
+        <div class="card m-5 p-0" style="width: 18rem;">
+            <img class="card-img-top" src="@item.Picture" alt="@item.Name">
+            <div class="card-body">
+                <span class="firstLetter">@item.Name[0]</span>@item.Name.Substring(1)
+            </div>
+        </div>
+    }
+</div>

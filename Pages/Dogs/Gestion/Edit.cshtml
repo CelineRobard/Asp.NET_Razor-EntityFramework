@@ -1,0 +1,48 @@
+﻿@page
+@model DogRazor.Pages.Dogs.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+      <li class="breadcrumb-item" ><a href="../Gestion">Gestion</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Éditer un référencement</li>
+    </ol>
+</nav>
+
+<h4>@Html.DisplayFor(model => model.Dog.Name)</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Dog.Id" />
+            <div class="form-group">
+                <label asp-for="Dog.Name" class="control-label">Nom de la race</label>
+                <input asp-for="Dog.Name" class="form-control" />
+                <span asp-validation-for="Dog.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dog.Picture" class="control-label">Url du visuel</label>
+                <input asp-for="Dog.Picture" class="form-control" />
+                <span asp-validation-for="Dog.Picture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Valider" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="../Gestion">Revenir au menu</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

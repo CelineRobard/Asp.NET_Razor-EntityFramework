@@ -1,0 +1,49 @@
+﻿@page
+@model DogRazor.Pages.Dogs.IndexModel
+
+@{
+    ViewData["Title"] = "Gestion";
+}
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+      <li class="breadcrumb-item active" >Gestion</li>
+    </ol>
+</nav>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nom de la race
+            </th>
+            <th>
+                Url du visuel
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Dog) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Picture)
+            </td>
+            <td>
+                <a asp-page="./Gestion/Edit" asp-route-id="@item.Id">Éditer</a> |
+                <a asp-page="./Gestion/Delete" asp-route-id="@item.Id">Supprimer</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<a href="./Gestion/Create" class="btn btn-primary">Ajouter une race</a>
